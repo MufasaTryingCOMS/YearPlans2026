@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Office Forms</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .content {
+            padding: 50px 40px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #555;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .forms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .form-card {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8ebff 100%);
+            border-radius: 15px;
+            padding: 35px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .form-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .form-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+            border-color: #667eea;
+        }
+
+        .form-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.5em;
+            transition: all 0.4s ease;
+        }
+
+        .form-card:hover .form-icon {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        .form-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .form-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-size: 0.95em;
+        }
+
+        .form-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .form-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: #f8f9ff;
+            color: #666;
+            border-top: 2px solid #e8ebff;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        .contact-info {
+            margin-top: 15px;
+            font-size: 0.9em;
+        }
+
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .header p {
+                font-size: 1em;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .forms-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Promaths 2026</h1>
+            <p>Office Specific Year Plans</p>
+        </div>
+
+        <div class="content">
+            <div class="intro">
+                <p>Welcome! Please select your office below to submit your 2026 year plan. Each form will be automatically sent to your office supervisors.</p>
+            </div>
+
+            <div class="forms-grid">
+                <!-- Sports Office -->
+                <div class="form-card">
+                    <div class="form-icon">⚽</div>
+                    <h3 class="form-title">Sports Office</h3>
+                    <p class="form-description">Submit your 2026 sports events, programs, and initiatives planning document.</p>
+                    <a href="sports-year-plan.html" class="form-link">Open Form</a>
+                </div>
+
+                <!-- Events Office -->
+                <div class="form-card">
+                    <div class="form-icon">🎉</div>
+                    <h3 class="form-title">Events Office</h3>
+                    <p class="form-description">Submit your 2026 events planning for campus activities and special occasions.</p>
+                    <a href="events-year-plan.html" class="form-link">Open Form</a>
+                </div>
+
+                <!-- Academics Office -->
+                <div class="form-card">
+                    <div class="form-icon">📚</div>
+                    <h3 class="form-title">Academics Office</h3>
+                    <p class="form-description">Submit your 2026 academic programs, workshops, and educational initiatives.</p>
+                    <a href="academics-year-plan.html" class="form-link">Open Form</a>
+                </div>
+
+                <!-- Media Office -->
+                <div class="form-card">
+                    <div class="form-icon">📸</div>
+                    <h3 class="form-title">Media Office</h3>
+                    <p class="form-description">Submit your 2026 media coverage, content creation, and communication strategy.</p>
+                    <a href="media-year-plan.html" class="form-link">Open Form</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>Need Help?</strong></p>
+            <div class="contact-info">
+                <p><strong>Sports Office:</strong> <a href="mailto:2846670@students.wits.ac.za">2846670@students.wits.ac.za</a></p>
+                <p><strong>Events Office:</strong> <a href="mailto:avelamajalamba1@students.wits.ac.za">avelamajalamba1@students.wits.ac.za</a></p>
+                <p><strong>Academics Office:</strong> <a href="mailto:2560516@students.wits.ac.za">2560516@students.wits.ac.za</a> | <a href="mailto:basetsanamakena1@students.wits.ac.za">basetsanamakena1@students.wits.ac.za</a></p>
+                <p><strong>Media Office:</strong> <a href="mailto:mhlevuso1@students.wits.ac.za">mhlevuso1@students.wits.ac.za</a> | <a href="mailto:sthembilendaba1@students.wits.ac.za">sthembilendaba1@students.wits.ac.za</a></p>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.85em; color: #999;">Promaths Office Year Plans © 2026</p>
+        </div>
+    </div>
+</body>
+</html>
